@@ -4,17 +4,23 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import javax.swing.JButton;
-
 
 class DeserializeUntrustedData {
-  public String getButtonText() {
-    final File file = new File("Test.obj");
+  public void runMakeCommand() {
+    try {
+      Runtime.getRuntime().exec("make");
+    } catch (final IOException e) {
+      System.out.println(e.toString());
+    }
+  }
+
+  public String getEmployeeName() {
+    final File file = new File("Test1.obj");
     String ret = "";
     try (FileInputStream fileInputStream = new FileInputStream(file);
          ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
-      final JButton jbutton = (JButton) objectInputStream.readObject();
-      ret = jbutton.getText();
+      final Employee employee = (Employee) objectInputStream.readObject();
+      ret = employee.getName();
     } catch (IOException | ClassNotFoundException e) {
       System.out.println(e.toString());
     }
