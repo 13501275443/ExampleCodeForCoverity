@@ -27,7 +27,8 @@ public class Test {
 
     //
     final DeserializeUntrustedData deserializeUntrustedData = new DeserializeUntrustedData();
-    final String buttonText = deserializeUntrustedData.getButtonText();
-    System.out.println("deserializeUntrustedData.getButtonText" + buttonText);
+    deserializeUntrustedData.runMakeCommand();
+    final String empName = deserializeUntrustedData.getEmployeeName();
+    System.out.println("deserializeUntrustedData.getEmployeeName" + empName);
   }
 }
