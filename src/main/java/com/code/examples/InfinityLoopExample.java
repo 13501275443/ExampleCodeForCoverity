@@ -1,7 +1,5 @@
 package com.code.examples;
 
-import java.util.List;
-
 class InfinityLoopExample {
   public int div(final int dividend, final int divisor)  {
     int ret = 0;
@@ -13,11 +11,7 @@ class InfinityLoopExample {
     return ret;
   }
 
-  public void whileLoop() {
-    while(true) {
-    }
-  }
-  public int fib(int a) {
-    return fib(a-1) + fib(a-2);
+  public int fib(final int a) {
+    return fib(a - 1) + fib(a - 2);
   }
 }
