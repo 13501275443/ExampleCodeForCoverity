@@ -17,9 +17,7 @@ class InfinityLoopExample {
     while(true) {
     }
   }
-  public int fab(int a) {
-    int ret = 0;
-    ret = ret + fab(a-1) + fab(a-2);
-    return ret;
+  public int fib(int a) {
+    return fib(a-1) + fib(a-2);
   }
 }
