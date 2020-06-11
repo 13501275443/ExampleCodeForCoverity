@@ -26,6 +26,5 @@ class InfinityLoopExample {
 
   public int fib(final int a) {
     return fib(a - 1) + fib(a - 2);
-
   }
 }
