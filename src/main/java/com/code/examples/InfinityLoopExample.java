@@ -1,25 +1,29 @@
 package com.code.examples;
 
 class InfinityLoopExample {
-  public int calc(final int end)  {
-    final int min = -100;
-    final int max = 100;
-    int ret = 0;
-    int start = end;
-    while (start > min && start < max) {
-      if (start > 50) {
-        start += 10;
-      } else if (start > 10) {
-        start++;
-      } else if (start < 0) {
-        start -= 10;
-      } else {
-        //Do other complicate stuff
-        System.out.println("Do other complicate stuff based on " + end);
+  public long calc(final int timeInterval, final int fromInput) {
+    final long start = System.currentTimeMillis();
+    long cur = start;
+    try {
+
+      while (cur < start + timeInterval) {
+        Thread.sleep(10);
+        System.out.println("Current tick " + cur);
+        cur = System.currentTimeMillis();
       }
-      ret++;
+
+      while (cur < start + timeInterval / 2) {
+        Thread.sleep(10);
+        if (fromInput > 50) {
+          cur = System.currentTimeMillis();
+        }
+        System.out.println("Next tick " + cur);
+
+      }
+    } catch (final InterruptedException e) {
+      System.out.println(e.toString());
     }
-    return ret;
+    return cur;
   }
 
   public int fib(final int a) {
