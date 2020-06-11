@@ -17,9 +17,11 @@ class DeserializeUntrustedData {
   public String getEmployeeName() {
     final File file = new File("Test1.obj");
     String ret = "";
+    final int newId = 1001;
     try (FileInputStream fileInputStream = new FileInputStream(file);
          ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
       final Employee employee = (Employee) objectInputStream.readObject();
+      employee.setId(newId);
       ret = employee.getName();
     } catch (IOException | ClassNotFoundException e) {
       System.out.println(e.toString());
