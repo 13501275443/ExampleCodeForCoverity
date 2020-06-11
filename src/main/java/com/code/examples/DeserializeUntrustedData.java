@@ -6,9 +6,14 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 class DeserializeUntrustedData {
-  public void runMakeCommand() {
+  public void writeResponse() {
     try {
-      Runtime.getRuntime().exec("make");
+      final String file = System.in.toString();
+      final FileInputStream fileInputStream = new FileInputStream(file);
+      final int max = 100;
+      final byte[] bytes = new byte[max];
+      final int bytesRead = fileInputStream.read(bytes, 0, max);
+      System.out.println(bytesRead);
     } catch (final IOException e) {
       System.out.println(e.toString());
     }
