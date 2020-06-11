@@ -5,7 +5,6 @@ class InfinityLoopExample {
     final long start = System.currentTimeMillis();
     long cur = start;
     try {
-
       while (cur < start + timeInterval) {
         Thread.sleep(10);
         System.out.println("Current tick " + cur);
@@ -18,7 +17,6 @@ class InfinityLoopExample {
           cur = System.currentTimeMillis();
         }
         System.out.println("Next tick " + cur);
-
       }
     } catch (final InterruptedException e) {
       System.out.println(e.toString());
